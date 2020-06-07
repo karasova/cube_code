@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Blockly Demo</title>
+  <script src="blockly_compressed.js"></script>
+  <script src="python_compressed.js"></script>
+  <script src="blocks_compressed.js"></script>
+  <script src="msg/js/en.js"></script>
+  <script src="cube_blocks.js"></script>
+  
+  <style>
+    body {
+      background-color: #fff;
+      font-family: sans-serif;
+    }
+    h1 {
+      font-weight: normal;
+      font-size: 140%;
+    }
+  </style>
+</head>
+<body>
+
+    <div style="width: 100%">
+    <div id="blocklyDiv"
+        style="display: inline-block; height: 480px; width: 58%"></div>
+    <textarea id="output" disabled="disabled" aria-valuetext="hello"
+        style="display: inline-block; height: 480px; width: 38%;">
+    </textarea>
+  </div>
+
+  <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+    <category name="Logic">
+        <block type="controls_if"></block>
+        <block type="logic_compare"></block>
+        <block type="logic_operation"></block>
+        <block type="logic_negate"></block>
+        <block type="logic_boolean"></block>
+        <block type="logic_null"></block>
+        <block type="logic_ternary"></block>
+      </category>
+    <category name="Variables" custom="VARIABLE"></category>  
+    <category name="Cube">
+        <block type="start"></block>
+        <block type="port_activate"></block>
+        <block type="third_array"></block>
+        <block type="show_array"></block>
+    </category>
+  </xml>
+
+
+  
+
+  <script>
+   
+    var workspace = Blockly.inject('blocklyDiv',
+        {media: 'media/',
+         toolbox: document.getElementById('toolbox'),
+         grid:
+         {spacing: 20,
+          length: 3,
+          colour: '#ccc',
+          snap: true}});
+
+    var outputArea = document.getElementById('output');
+
+    function myUpdateFunction(event) {
+        var code = Blockly.Python.workspaceToCode(workspace);
+        outputArea.value = code;
+    }
+    workspace.addChangeListener(myUpdateFunction);
+
+  </script>
+
+</body>
+</html>
