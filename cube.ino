@@ -120,20 +120,12 @@ bool getArray() {
                 return true;
         }
         else 
-            return false;
-        
+            return false;       
 
     }
 
-    // if (checkArray) {
-    
-    // }
-    // return false;
-
     
 }
-
-// String data;
 
 void loop() {    
 
