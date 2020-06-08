@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Blockly Demo</title>
+  <title>Blockly Demo: Fixed Blockly</title>
   <script src="blockly_compressed.js"></script>
   <script src="python_compressed.js"></script>
   <script src="blocks_compressed.js"></script>
@@ -31,7 +31,7 @@
   </div>
 
   <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-    <category name="Logic">
+    <category name="Logic" colour="210">
         <block type="controls_if"></block>
         <block type="logic_compare"></block>
         <block type="logic_operation"></block>
@@ -39,13 +39,49 @@
         <block type="logic_boolean"></block>
         <block type="logic_null"></block>
         <block type="logic_ternary"></block>
+        <block type="math_number">
+            <field name="NUM">1</field>
+        </block>
       </category>
-    <category name="Variables" custom="VARIABLE"></category>  
-    <category name="Cube">
+      <category name="Loops" colour="120">
+        <block type="controls_repeat_ext">
+          <value name="TIMES">
+            <shadow type="math_number">
+              <field name="NUM">10</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="controls_whileUntil"></block>
+        <block type="controls_for">
+          <value name="FROM">
+            <shadow type="math_number">
+              <field name="NUM">1</field>
+            </shadow>
+          </value>
+          <value name="TO">
+            <shadow type="math_number">
+              <field name="NUM">10</field>
+            </shadow>
+          </value>
+          <value name="BY">
+            <shadow type="math_number">
+              <field name="NUM">1</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="controls_forEach"></block>
+        <block type="controls_flow_statements"></block>
+      </category>
+    <sep></sep>
+    <category name="Variables" custom="VARIABLE"  colour="330"></category>  
+    <category name="Functions" colour="285" custom="PROCEDURE"></category>
+    <sep></sep>
+    <category name="Cube"  colour="0">
         <block type="start"></block>
         <block type="port_activate"></block>
         <block type="third_array"></block>
         <block type="show_array"></block>
+        <block type="set_array"></block>
     </category>
   </xml>
 
